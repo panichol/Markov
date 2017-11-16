@@ -72,8 +72,11 @@ class Application(tk.Frame):
         """)
 
     def alicePressed(self):
-        self.output.config(text = self.aliceMap.Generate(1000))
-
+        try:
+            self.output.config(text = self.aliceMap.Generate(1000))
+        except TypeError:
+            self.alicePressed()
+            
     def warPressed(self):
         self.output.config(text = self.warMap.Generate(1000))
         
